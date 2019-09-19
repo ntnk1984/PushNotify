@@ -25,6 +25,8 @@ const applicationServerPublicKey =
   "BBPNINJTrspT43FJgxtXv6Hk3NAOWXB6_PuP43D6SXN0pgs3455JrcWvDa2XOB-Zi4KuA0d39YIF_SX9ZNFfu4g";
 
 const pushButton = document.querySelector(".js-push-btn");
+const demoButton = document.querySelector(".js-demo-btn");
+
 
 let isSubscribed = false;
 let swRegistration = null;
@@ -70,6 +72,23 @@ function initializeUI() {
       // TODO: Unsubscribe user
     } else {
       subscribeUser();
+    }
+  });
+  
+  demoButton.addEventListener("click", function() {
+    if (isSubscribed) {
+      // TODO: Unsubscribe user
+      const title = "ACB";
+      const options = {
+        body:
+          "TK 5306537(VND) + 52,137,100 luc 16:43 19/09/2019. So du 1,118,927,797. GD: CONG TY CHI LUONG THANG 9.2019",
+        icon: "images/icon.png",
+        badge: "images/badge.png"
+      };
+
+      swRegistration.showNotification(title, options);
+    } else {
+      //subscribeUser();
     }
   });
 
